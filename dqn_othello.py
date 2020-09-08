@@ -234,6 +234,7 @@ if __name__ == "__main__":
 
 
             if done:  ### IF DONE ADD THE FINAL REWARD OF THE EPISODE TO TOTAL_REWARD AND INCREMENT FULL_EPISODES_COUNTER
+                last_n_episodes_scores.append(reward)
                 state = env.reset()
                 if reward > 0:
                     agent.update_target_model()
