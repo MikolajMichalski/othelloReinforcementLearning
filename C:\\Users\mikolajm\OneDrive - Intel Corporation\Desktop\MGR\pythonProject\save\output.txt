@@ -1,0 +1,196 @@
+ games won/total: 0/1.0, win %: 0.0%, last score: -1
+ games won/total: 0/2.0, win %: 0.0%, last score: -1
+ games won/total: 0/3.0, win %: 0.0%, last score: -1
+ games won/total: 0/4.0, win %: 0.0%, last score: -1
+ games won/total: 0/5.0, win %: 0.0%, last score: -1
+ games won/total: 0/6.0, win %: 0.0%, last score: -1
+ games won/total: 0/7.0, win %: 0.0%, last score: -1
+ games won/total: 0/8.0, win %: 0.0%, last score: -1
+ games won/total: 0/9.0, win %: 0.0%, last score: -1
+ games won/total: 0/10.0, win %: 0.0%, last score: -1
+ games won/total: 0/11.0, win %: 0.0%, last score: -1
+ games won/total: 0/12.0, win %: 0.0%, last score: -1
+ games won/total: 0/13.0, win %: 0.0%, last score: -1
+ games won/total: 0/14.0, win %: 0.0%, last score: -1
+ games won/total: 0/15.0, win %: 0.0%, last score: -1
+ games won/total: 0/16.0, win %: 0.0%, last score: -1
+ games won/total: 0/17.0, win %: 0.0%, last score: -1
+ games won/total: 0/18.0, win %: 0.0%, last score: -1
+ games won/total: 0/19.0, win %: 0.0%, last score: -1
+Random games won/total: 1/1.0, win %: 100.0%, last score: 1.0
+Random games won/total: 1/2.0, win %: 50.0%, last score: -1
+Random games won/total: 1/3.0, win %: 33.33%, last score: -1
+Random games won/total: 2/4.0, win %: 50.0%, last score: 1.0
+Random games won/total: 2/5.0, win %: 40.0%, last score: -1
+Random games won/total: 3/6.0, win %: 50.0%, last score: 1.0
+Random games won/total: 3/7.0, win %: 42.86%, last score: -1
+Random games won/total: 3/8.0, win %: 37.5%, last score: -1
+Random games won/total: 3/9.0, win %: 33.33%, last score: -1
+Random games won/total: 3/10.0, win %: 30.0%, last score: -1
+Random games won/total: 3/11.0, win %: 27.27%, last score: -1
+Random games won/total: 4/12.0, win %: 33.33%, last score: 1.0
+Random games won/total: 4/13.0, win %: 30.77%, last score: -1
+Random games won/total: 4/14.0, win %: 28.57%, last score: -1
+Random games won/total: 5/15.0, win %: 33.33%, last score: 1.0
+Random games won/total: 5/16.0, win %: 31.25%, last score: -1
+Random games won/total: 6/17.0, win %: 35.29%, last score: 1.0
+Random games won/total: 6/18.0, win %: 33.33%, last score: -1
+Random games won/total: 6/19.0, win %: 31.58%, last score: -1
+Random games won/total: 7/20.0, win %: 35.0%, last score: 1.0
+Random games won/total: 7/21.0, win %: 33.33%, last score: -1
+Random games won/total: 7/22.0, win %: 31.82%, last score: -1
+Random games won/total: 7/23.0, win %: 30.43%, last score: -1
+Random games won/total: 7/24.0, win %: 29.17%, last score: -1
+Random games won/total: 8/25.0, win %: 32.0%, last score: 1.0
+Random games won/total: 8/26.0, win %: 30.77%, last score: -1
+Random games won/total: 9/27.0, win %: 33.33%, last score: 1.0
+Random games won/total: 10/28.0, win %: 35.71%, last score: 1.0
+Random games won/total: 11/29.0, win %: 37.93%, last score: 1.0
+Random games won/total: 12/30.0, win %: 40.0%, last score: 1.0
+Games won/total: 0/1.0, win %: 0.0%, last score: -1
+Games won/total: 0/2.0, win %: 0.0%, last score: -1
+Games won/total: 0/3.0, win %: 0.0%, last score: -1
+Games won/total: 0/4.0, win %: 0.0%, last score: -1
+Games won/total: 0/5.0, win %: 0.0%, last score: -1
+Games won/total: 0/6.0, win %: 0.0%, last score: -1
+Games won/total: 0/1.0, win %: 0.0%, last score: -1
+Games won/total: 0/2.0, win %: 0.0%, last score: -1
+Games won/total: 0/3.0, win %: 0.0%, last score: -1
+Games won/total: 0/4.0, win %: 0.0%, last score: -1
+Games won/total: 0/5.0, win %: 0.0%, last score: -1
+Games won/total: 0/6.0, win %: 0.0%, last score: -1
+Games won/total: 1/1.0, win %: 100.0%, last score: 1.0
+Games won/total: 2/2.0, win %: 100.0%, last score: 1.0
+Games won/total: 3/3.0, win %: 100.0%, last score: 1.0
+Games won/total: 4/4.0, win %: 100.0%, last score: 1.0
+Games won/total: 5/5.0, win %: 100.0%, last score: 1.0
+Games won/total: 6/6.0, win %: 100.0%, last score: 1.0
+Random games won/total: 0/1.0, win %: 0.0%, last score: -1
+Random games won/total: 0/2.0, win %: 0.0%, last score: -1
+Random games won/total: 0/3.0, win %: 0.0%, last score: -1
+Random games won/total: 1/4.0, win %: 25.0%, last score: 1.0
+Random games won/total: 2/5.0, win %: 40.0%, last score: 1.0
+Random games won/total: 2/6.0, win %: 33.33%, last score: -1
+Random games won/total: 2/7.0, win %: 28.57%, last score: -1
+Random games won/total: 3/8.0, win %: 37.5%, last score: 1.0
+Random games won/total: 3/9.0, win %: 33.33%, last score: -1
+Random games won/total: 3/10.0, win %: 30.0%, last score: -1
+Random games won/total: 4/11.0, win %: 36.36%, last score: 1.0
+Random games won/total: 5/12.0, win %: 41.67%, last score: 1.0
+Random games won/total: 5/13.0, win %: 38.46%, last score: -1
+Random games won/total: 5/14.0, win %: 35.71%, last score: -1
+Random games won/total: 5/15.0, win %: 33.33%, last score: -1
+Random games won/total: 5/16.0, win %: 31.25%, last score: -1
+Random games won/total: 5/17.0, win %: 29.41%, last score: -1
+Random games won/total: 5/18.0, win %: 27.78%, last score: -1
+Random games won/total: 6/19.0, win %: 31.58%, last score: 1.0
+Random games won/total: 7/20.0, win %: 35.0%, last score: 1.0
+Random games won/total: 7/21.0, win %: 33.33%, last score: -1
+Random games won/total: 8/22.0, win %: 36.36%, last score: 1.0
+Random games won/total: 9/23.0, win %: 39.13%, last score: 1.0
+Random games won/total: 0/1.0, win %: 0.0%, last score: -1
+Random games won/total: 0/2.0, win %: 0.0%, last score: -1
+Random games won/total: 1/3.0, win %: 33.33%, last score: 1.0
+Random games won/total: 1/4.0, win %: 25.0%, last score: -1
+Random games won/total: 1/5.0, win %: 20.0%, last score: -1
+Random games won/total: 1/6.0, win %: 16.67%, last score: -1
+Random games won/total: 1/7.0, win %: 14.29%, last score: -1
+Random games won/total: 2/8.0, win %: 25.0%, last score: 1.0
+Random games won/total: 3/9.0, win %: 33.33%, last score: 1.0
+Random games won/total: 3/10.0, win %: 30.0%, last score: -1
+Random games won/total: 3/11.0, win %: 27.27%, last score: -1
+Random games won/total: 3/12.0, win %: 25.0%, last score: -1
+Random games won/total: 3/13.0, win %: 23.08%, last score: -1
+Random games won/total: 3/14.0, win %: 21.43%, last score: -1
+Random games won/total: 3/15.0, win %: 20.0%, last score: -1
+Random games won/total: 3/16.0, win %: 18.75%, last score: -1
+Random games won/total: 3/17.0, win %: 17.65%, last score: -1
+Random games won/total: 4/18.0, win %: 22.22%, last score: 1.0
+Random games won/total: 4/19.0, win %: 21.05%, last score: -1
+Random games won/total: 4/20.0, win %: 20.0%, last score: -1
+Random games won/total: 4/21.0, win %: 19.05%, last score: -1
+Random games won/total: 4/22.0, win %: 18.18%, last score: -1
+Random games won/total: 4/23.0, win %: 17.39%, last score: -1
+Random games won/total: 5/24.0, win %: 20.83%, last score: 1.0
+Random games won/total: 6/25.0, win %: 24.0%, last score: 1.0
+Random games won/total: 6/26.0, win %: 23.08%, last score: -1
+Random games won/total: 6/27.0, win %: 22.22%, last score: -1
+Random games won/total: 7/28.0, win %: 25.0%, last score: 1.0
+Random games won/total: 8/29.0, win %: 27.59%, last score: 1.0
+Random games won/total: 9/30.0, win %: 30.0%, last score: 1.0
+Trained episode: 0, current score: -1 mean_score: 0.0, e: 0.73, iterations (steps): 31
+Trained episode: 1, current score: -10.0 mean_score: 0.0, e: 0.57, iterations (steps): 56
+Trained episode: 2, current score: -10.0 mean_score: 0.0, e: 0.46, iterations (steps): 78
+Trained episode: 3, current score: -10.0 mean_score: 0.0, e: 0.38, iterations (steps): 95
+Trained episode: 4, current score: -10.0 mean_score: 0.0, e: 0.33, iterations (steps): 109
+Trained episode: 5, current score: -10.0 mean_score: 0.0, e: 0.29, iterations (steps): 124
+Trained episode: 6, current score: -10.0 mean_score: 0.0, e: 0.24, iterations (steps): 141
+Trained episode: 7, current score: -10.0 mean_score: 0.0, e: 0.21, iterations (steps): 155
+Trained episode: 8, current score: -10.0 mean_score: 0.0, e: 0.16, iterations (steps): 183
+Trained episode: 9, current score: -10.0 mean_score: 0.0, e: 0.13, iterations (steps): 201
+Trained episode: 10, current score: -10.0 mean_score: 0.0, e: 0.12, iterations (steps): 212
+Trained episode: 11, current score: -10.0 mean_score: 0.0, e: 0.1, iterations (steps): 226
+Trained episode: 12, current score: -10.0 mean_score: 0.0, e: 0.089, iterations (steps): 241
+Trained episode: 13, current score: 1.0 mean_score: 0.0, e: 0.065, iterations (steps): 272
+Games won/total: 0/1.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/2.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/3.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/4.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/5.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/6.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/7.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/8.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/9.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/10.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/11.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/12.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/13.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/14.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/15.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/16.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/17.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/18.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/19.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/20.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/21.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/22.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/23.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/24.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/25.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/26.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/27.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/28.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/29.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/30.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/31.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/32.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/33.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/34.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/35.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/36.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/37.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/38.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/39.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/40.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/41.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/42.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/43.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/44.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/45.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/46.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/47.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/48.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/49.0, win %: 0.0%, last score: -10.0
+Games won/total: 0/50.0, win %: 0.0%, last score: -10.0
+Trained episode: 14, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 287
+Trained episode: 15, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 302
+Trained episode: 16, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 317
+Trained episode: 17, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 332
+Trained episode: 18, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 347
+Trained episode: 19, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 362
+Trained episode: 20, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 377
+Trained episode: 21, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 392
+Trained episode: 22, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 407
+Trained episode: 23, current score: -10.0 mean_score: 0.1, e: 0.0, iterations (steps): 422
+Trained episode: 24, current score: -10.0 mean_score: 0.0, e: 0.0, iterations (steps): 437
+Trained episode: 25, current score: -10.0 mean_score: 0.0, e: 0.0, iterations (steps): 452
