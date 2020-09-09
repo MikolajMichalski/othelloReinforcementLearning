@@ -11,7 +11,7 @@ from keras.layers import Softmax
 import sys
 
 EPISODES = 1000
-outputFilePath = "save/output-minmax-fixed-training-depth-2.txt"
+outputFilePath = "save/output-rand_enemy-lr_0_005-ep_min_0_05.txt"
 
 def writeStdOutputToFile(filePath, text):
     original_std_out = sys.stdout
@@ -52,9 +52,7 @@ class DDQNAgent:
 
     def get_action_to_make(self, state):
         if np.random.rand() <= self.epsilon:
-            #return random.randrange(64)
             return random.choice(self.env.possible_actions)
-            #return random.choice(range(env.action_space.n))
         act_values = self.model.predict(state)
         possible_act_values = np.zeros((1, len(act_values[0])), float)
         for index in range(len(act_values[0])):
@@ -103,13 +101,13 @@ if __name__ == "__main__":
     mean_reward = 0.0
     max_mean_reward = 0.0
     random_episode_no = 0
-    load_weights = True
+    load_weights = False
     random_episodes_mean_reward = 0.0
     random_episodes_total_reward = 0.0
     random_iterations_to_play = 900
     games_won = 0
     max_reward = 0
-    weights_to_load = "save/cartpole-dqn-target.h5"
+    weights_to_load = "save/output-rand_enemy-lr_0_005-ep_min_0_05.h5"
 
     def play_n_episodes(state, episodes_number, if_random, load_weights, iter_no):
 
@@ -131,7 +129,7 @@ if __name__ == "__main__":
                 agent.replay_buffer_save(state, action, reward, next_state, done)
             state = next_state
             if done:
-                env.render()
+                #env.render()
                 state = env.reset()
                 full_episodes_counter += 1
                 if reward > 0:
@@ -193,19 +191,16 @@ if __name__ == "__main__":
                 state = env.reset()
                 if reward > 0:
                     agent.sync_target_model()
-                    #max_reward = reward
                     agent.save("save/othello-dqn-minmax-fixed.h5")
                 print("Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(full_episodes_counter, reward, mean_reward, agent.epsilon, iter_no)) ### PRINT FINAL INFO ABOUT EPISODES
                 writeStdOutputToFile(outputFilePath,"Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(full_episodes_counter, reward, mean_reward, agent.epsilon, iter_no))  ### PRINT FINAL INFO ABOUT EPISODES
                 full_episodes_counter += 1
-                last_n_episodes_scores.append(reward) #total_reward += reward
                 if full_episodes_counter >= 10:
-                    #mean_reward = float(sum(last_n_episodes_scores)/len(last_n_episodes_scores)) #mean_reward = total_reward/full_episodes_counter ### CALCULATE
                     mean_reward = sum(1 for i in last_n_episodes_scores if i == 1)/len(last_n_episodes_scores)
                     if mean_reward == 1.0:
                         agent.target_model.save(weights_to_load)
-                        test_score = play_n_episodes(state, 50, False, True, 0)
-                        if test_score == 100:
+                        test_score = play_n_episodes(state, 100, False, True, 0)
+                        if test_score > 65:
                             print("Solved! Iterations played: {}, full episodes played: {}".format(iter_no,
                                                                                                    full_episodes_counter))
                             writeStdOutputToFile(outputFilePath,
@@ -215,14 +210,5 @@ if __name__ == "__main__":
                     if mean_reward > max_mean_reward:
                         max_mean_reward = mean_reward
                         agent.target_model.save(weights_to_load)
-                        # test_score = play_n_episodes(state, 50, False, True, 0)
-                        # if test_score == 100:
-                        #     print("Solved! Iterations played: {}, full episodes played: {}".format(iter_no,
-                        #                                                                            full_episodes_counter))
-                        #     writeStdOutputToFile(outputFilePath,
-                        #                          "Solved! Iterations played: {}, full episodes played: {}".format(
-                        #                              iter_no, full_episodes_counter))
-                        #     break
-
 
 
