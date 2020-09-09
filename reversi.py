@@ -29,7 +29,7 @@ class ReversiEnv(gym.Env):
     BLACK = 0
     WHITE = 1
     metadata = {"render.modes": ["ansi","human"]}
-    MINMAX_DEPTH = 0
+    MINMAX_DEPTH = 3
     OPPONENT_POLICY_TYPE = 'minmax'
 
     def __init__(self, player_color, opponent, observation_type, illegal_place_mode, board_size):
@@ -144,7 +144,7 @@ class ReversiEnv(gym.Env):
         if self.OPPONENT_POLICY_TYPE == "minmax":
             a = self.best_action(tmporary_state)
         else:
-            a = sa = self.opponent_policy(self.state, 1 - self.player_color) ####### USE MINIMAX TO CHOOSE ACTION
+            a = self.opponent_policy(self.state, 1 - self.player_color) ####### USE MINIMAX TO CHOOSE ACTION
 
         # Making place if there are places left
         if a is not None:
@@ -405,48 +405,52 @@ class ReversiEnv(gym.Env):
 
     def getCurrentObservations(self, state):
         obs = np.empty([state.shape[-1], state.shape[-1]])
-        for x in range(self.state.shape[-1]):
-            for y in range(self.state.shape[-1]):
-                if self.state[2, x, y] == 1:
+        for x in range(state.shape[-1]):
+            for y in range(state.shape[-1]):
+                if state[2, x, y] == 1:
                     obs[x, y] = 0
                 else:
-                    if self.state[0, x, y] == 1:
+                    if state[0, x, y] == 1:
                         obs[x, y] = 1
                     else:
-                        if self.state[1, x, y] == 1:
+                        if state[1, x, y] == 1:
                             obs[x, y] = -1
         obs = np.concatenate(obs)
         return obs
 
     def calculate_min_max_action(self, game_state, depth, maximizing_player):
-        tmp_state = game_state
+        tmp_state = deepcopy(game_state)
         if maximizing_player:
             current_player_color = 1
         else:
             current_player_color = 0
+        possible_actions_tmp = self.get_possible_actions(tmp_state, current_player_color)
 
-        if depth == self.MINMAX_DEPTH or len(self.get_possible_actions(tmp_state, current_player_color))==0 \
-                or (i>=64 for i in self.get_possible_actions(tmp_state, current_player_color)):
-            score = sum(1 for i in self.getCurrentObservations(tmp_state) if i==1)
+        if depth == self.MINMAX_DEPTH or (len(possible_actions_tmp)==1 and any(possible_actions_tmp) > 64):
+            tmp_obs = self.getCurrentObservations(tmp_state)
+            score = sum(1 for i in self.getCurrentObservations(tmp_state) if i==-1)
             return score
 
         if maximizing_player:
             best_score = -9999
             possible_actions_tmp = self.get_possible_actions(tmp_state, current_player_color)
             for action in possible_actions_tmp:
+                tmp_state1 = deepcopy(tmp_state)
                 if action != 65:
                     tmp_state = ReversiEnv.make_place(tmp_state, action, 1)
                 score = self.calculate_min_max_action(tmp_state, depth + 1, False)
+                tmp_state = tmp_state1
                 best_score = max(score, best_score)
             return best_score
         else:
             best_score = 9999
             possible_actions_tmp = self.get_possible_actions(tmp_state, current_player_color)
             for action in possible_actions_tmp:
+                tmp_state1 = deepcopy(tmp_state)
                 if action != 65:
                     tmp_state = ReversiEnv.make_place(tmp_state, action, 0)
-
                 score = self.calculate_min_max_action(tmp_state, depth+1, True)
+                tmp_state = tmp_state1
                 best_score = min(score, best_score)
 
             return best_score
@@ -459,13 +463,21 @@ class ReversiEnv(gym.Env):
         possible_actions_tmp = deepcopy(ReversiEnv.get_possible_actions(tmp_state, 1))
 
         for action in possible_actions_tmp:
+            tmp_state1 = deepcopy(tmp_state)
             if action != 65:
                 tmp_state = ReversiEnv.make_place(tmp_state, action, 1)
+
             score = self.calculate_min_max_action(tmp_state, 0, False)
+            tmp_state = tmp_state1
             if score > best_score:
                 best_score = score
                 b_action = action
         return b_action
+
+
+    def undo_move(self, state_before, state_after):
+        state_after = state_before
+        return state_after
 
 
 
