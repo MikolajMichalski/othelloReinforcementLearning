@@ -8,10 +8,11 @@ from keras.layers import Dense
 from keras.optimizers import Adam
 from keras.optimizers import SGD
 from keras.layers import Softmax
+from copy import deepcopy
 import sys
 
 EPISODES = 1000
-outputFilePath = "save/output-rand_enemy-lr_0_005-ep_min_0_05.txt"
+outputFilePath = "save/output-minmax_2_enemy-lr_0_001-ep_min_0_05-replay_b_500-batch_size_30.txt"
 
 def writeStdOutputToFile(filePath, text):
     original_std_out = sys.stdout
@@ -25,12 +26,12 @@ class DDQNAgent:
     def __init__(self, state_size, action_size, env):
         self.state_size = state_size
         self.action_size = action_size
-        self.memory = deque(maxlen=1000)
+        self.memory = deque(maxlen=500)
         self.gamma = 0.9    # discount rate
         self.epsilon = 1.0  # exploration rate
         self.epsilon_min = 0.05
-        self.epsilon_decay = 0.99
-        self.learning_rate = 0.005
+        self.epsilon_decay = 0.95
+        self.learning_rate = 0.001
         self.model = self.initiate_model()
         self.target_model = self.initiate_model()
         self.env = env
@@ -52,7 +53,9 @@ class DDQNAgent:
 
     def get_action_to_make(self, state):
         if np.random.rand() <= self.epsilon:
+            #return random.randrange(64)
             return random.choice(self.env.possible_actions)
+            #return random.choice(range(env.action_space.n))
         act_values = self.model.predict(state)
         possible_act_values = np.zeros((1, len(act_values[0])), float)
         for index in range(len(act_values[0])):
@@ -107,13 +110,14 @@ if __name__ == "__main__":
     random_iterations_to_play = 900
     games_won = 0
     max_reward = 0
-    weights_to_load = "save/output-rand_enemy-lr_0_005-ep_min_0_05.h5"
+    weights_to_load = "save/output-rand_enemy-lr_0_001-ep_min_0_1-replay_b_1000-batch_size_50.h5"
 
-    def play_n_episodes(state, episodes_number, if_random, load_weights, iter_no):
+    def play_n_episodes(state, episodes_number, if_random, load_weights, iter_no, current_epsilon):
 
         full_episodes_counter = 0.
         games_won = 0
         if load_weights:
+            current_epsilon = deepcopy(agent.epsilon)
             if_random = False
             do_replay = False
             agent.load(weights_to_load)
@@ -155,15 +159,16 @@ if __name__ == "__main__":
                                              reward))
                 if full_episodes_counter == episodes_number:
                     if load_weights:
+                        agent.epsilon = current_epsilon
                         return games_won / full_episodes_counter * 100
                     break
 
 
     state = env.reset()     ### RESET THE ENVIRONMENT ON START OF THE GAME
     if load_weights:  ### LOAD WEIGHTS IF PLAYING ON TRAINED MODEL
-        play_n_episodes(state, EPISODES, False, load_weights, iter_no)
+        play_n_episodes(state, EPISODES, False, load_weights, iter_no, agent.epsilon)
     else:  ### IF WEIGHTS ARE NOT LOADED - TRAIN THE MODEL
-        play_n_episodes(state, 30, True, load_weights, iter_no)
+        play_n_episodes(state, 30, True, load_weights, iter_no, agent.epsilon)
 
         while True:
 
@@ -183,23 +188,38 @@ if __name__ == "__main__":
             if len(agent.memory) > batch_size: #batch_size:  ### PLAY SPECIFIED NUMER OF EPISODES WITH RANDOM POLICY.
                 agent.replay(batch_size)
             else:
-                play_n_episodes(1, True, load_weights, iter_no)
+                play_n_episodes(1, True, load_weights, iter_no, agent.epsilon)
 
 
             if done:  ### IF DONE ADD THE FINAL REWARD OF THE EPISODE TO TOTAL_REWARD AND INCREMENT FULL_EPISODES_COUNTER
                 last_n_episodes_scores.append(reward)
+                full_episodes_counter += 1
                 state = env.reset()
                 if reward > 0:
                     agent.sync_target_model()
+                    #max_reward = reward
                     agent.save("save/othello-dqn-minmax-fixed.h5")
-                print("Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(full_episodes_counter, reward, mean_reward, agent.epsilon, iter_no)) ### PRINT FINAL INFO ABOUT EPISODES
-                writeStdOutputToFile(outputFilePath,"Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(full_episodes_counter, reward, mean_reward, agent.epsilon, iter_no))  ### PRINT FINAL INFO ABOUT EPISODES
-                full_episodes_counter += 1
+                # print("Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(full_episodes_counter, reward, mean_reward, agent.epsilon, iter_no)) ### PRINT FINAL INFO ABOUT EPISODES
+                # writeStdOutputToFile(outputFilePath,"Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(full_episodes_counter, reward, mean_reward, agent.epsilon, iter_no))  ### PRINT FINAL INFO ABOUT EPISODES
+
+                #last_n_episodes_scores.append(reward) #total_reward += reward
                 if full_episodes_counter >= 10:
                     mean_reward = sum(1 for i in last_n_episodes_scores if i == 1)/len(last_n_episodes_scores)
+                    print(
+                        "Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(
+                            full_episodes_counter, reward, mean_reward, agent.epsilon,
+                            iter_no))  ### PRINT FINAL INFO ABOUT EPISODES
+                    writeStdOutputToFile(outputFilePath,
+                                         "Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(
+                                             full_episodes_counter, reward, mean_reward, agent.epsilon,
+                                             iter_no))  ### PRINT FINAL INFO ABOUT EPISODES
+
+                    #mean_reward = float(sum(last_n_episodes_scores)/len(last_n_episodes_scores)) #mean_reward = total_reward/full_episodes_counter ### CALCULATE
+
                     if mean_reward == 1.0:
                         agent.target_model.save(weights_to_load)
-                        test_score = play_n_episodes(state, 100, False, True, 0)
+                        print("Saving net weights")
+                        test_score = play_n_episodes(state, 1, False, True, 0, agent.epsilon)
                         if test_score > 65:
                             print("Solved! Iterations played: {}, full episodes played: {}".format(iter_no,
                                                                                                    full_episodes_counter))
@@ -207,8 +227,27 @@ if __name__ == "__main__":
                                                  "Solved! Iterations played: {}, full episodes played: {}".format(
                                                      iter_no, full_episodes_counter))
                             break
-                    if mean_reward > max_mean_reward:
+                    if mean_reward >= max_mean_reward:
                         max_mean_reward = mean_reward
                         agent.target_model.save(weights_to_load)
+                        test_score = play_n_episodes(state, 1, False, True, 0, agent.epsilon)
+                        if test_score > 65:
+                            print("Solved! Iterations played: {}, full episodes played: {}".format(iter_no,
+                                                                                                   full_episodes_counter))
+                            writeStdOutputToFile(outputFilePath,
+                                                 "Solved! Iterations played: {}, full episodes played: {}".format(
+                                                     iter_no, full_episodes_counter))
+                            break
+                        print("Saving net weights")
+                else:
+                    print(
+                        "Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(
+                            full_episodes_counter, reward, mean_reward, agent.epsilon,
+                            iter_no))  ### PRINT FINAL INFO ABOUT EPISODES
+                    writeStdOutputToFile(outputFilePath,
+                                         "Trained episode: {}, current score: {} mean_score: {:.4}, e: {:.2}, iterations (steps): {}".format(
+                                             full_episodes_counter, reward, mean_reward, agent.epsilon,
+                                             iter_no))  ### PRINT FINAL INFO ABOUT EPISODES
+
 
 
