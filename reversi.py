@@ -10,7 +10,9 @@ import numpy as np
 from gym import error
 from gym.utils import seeding
 from copy import deepcopy
+from collections import deque
 from termcolor import colored
+import collections
 
 def make_random_policy(np_random):
     def random_policy(state, player_color):
@@ -29,7 +31,7 @@ class ReversiEnv(gym.Env):
     BLACK = 0
     WHITE = 1
     metadata = {"render.modes": ["ansi","human"]}
-    MINMAX_DEPTH = 3
+    MINMAX_DEPTH = 2
     OPPONENT_POLICY_TYPE = 'minmax'
 
     def __init__(self, player_color, opponent, observation_type, illegal_place_mode, board_size):
@@ -420,6 +422,7 @@ class ReversiEnv(gym.Env):
 
     def calculate_min_max_action(self, game_state, depth, maximizing_player):
         tmp_state = deepcopy(game_state)
+
         if maximizing_player:
             current_player_color = 1
         else:
@@ -458,10 +461,12 @@ class ReversiEnv(gym.Env):
 
 
     def best_action(self, game_state):
+        import operator
+        import itertools
         best_score = -9999
         tmp_state = game_state
         possible_actions_tmp = deepcopy(ReversiEnv.get_possible_actions(tmp_state, 1))
-
+        action_score_dict = dict()
         for action in possible_actions_tmp:
             tmp_state1 = deepcopy(tmp_state)
             if action != 65:
@@ -469,17 +474,14 @@ class ReversiEnv(gym.Env):
 
             score = self.calculate_min_max_action(tmp_state, 0, False)
             tmp_state = tmp_state1
+            action_score_dict.update({action : score})
             if score > best_score:
                 best_score = score
                 b_action = action
+            action_score_dict_sorted = sorted(action_score_dict.items(), key=lambda kv: kv[1])
+            k_best_actions = action_score_dict_sorted[-2::]
+            b_action = k_best_actions[self.np_random.randint(len(k_best_actions))][0]
         return b_action
-
-
-    def undo_move(self, state_before, state_after):
-        state_after = state_before
-        return state_after
-
-
 
 
 
