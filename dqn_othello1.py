@@ -10,7 +10,7 @@ from keras.optimizers import SGD
 from keras.layers import Softmax
 from copy import deepcopy
 import sys
-from gym.envs.reversi.reversi import ReversiEnv
+from reversi import ReversiEnv
 
 
 EPISODES = 1000
