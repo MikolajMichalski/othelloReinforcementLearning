@@ -10,6 +10,7 @@ from keras.optimizers import SGD
 from keras.layers import Softmax
 from copy import deepcopy
 import sys
+from reversi import ReversiEnv
 
 EPISODES = 1000
 outputFilePath = "save/output-minmax_2_enemy-lr_0_001-ep_min_0_05-replay_b_500-batch_size_30.txt"
@@ -89,7 +90,7 @@ class DDQNAgent:
 
 
 if __name__ == "__main__":
-    env = gym.make('Reversi8x8-v0')
+    env = ReversiEnv("black", "random", "numpy3c", "lose", 8)#gym.make('Reversi8x8-v0')
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
     n_episodes_deque_size = 10
